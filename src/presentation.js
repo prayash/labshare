@@ -199,7 +199,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']}>
-          <Heading size={2} textSize="2em" textColor="#282828">
+          <Heading size={2} textSize="1.25em" textColor="#282828">
             All original ideas are variations of pre-existing ones.
           </Heading>
         </Slide>
