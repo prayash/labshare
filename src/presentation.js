@@ -34,7 +34,11 @@ const theme = createTheme(
     quarternary: '#03A9FC'
   },
   {
-    primary: { name: 'Roboto', googleFont: true, styles: ['200', '400', '700'] }
+    primary: {
+      name: 'Lato',
+      googleFont: true,
+      styles: ['200', '400', '700']
+    }
   }
 )
 
@@ -42,13 +46,12 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        transition={['fade']}
         transitionDuration={420}
         theme={theme}
         progress="bar"
         controls={false}
       >
-        <Slide>
+        <Slide transition={['fade']}>
           <Heading textSize="2em">5 Things Music Taught Me</Heading>
           <br />
           <Heading textSize="2em">
@@ -64,7 +67,7 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide>
+        <Slide transition={['slide', 'fade']}>
           <Heading textSize="2em">
             Hey, hi.{' '}
             <span role="img" aria-label="wave">
@@ -73,23 +76,29 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Image width="100%" src={images.guitar} />
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Image width="100%" src={images.studio} />
         </Slide>
 
         <Slide
+          transition={['fade']}
           bgImage={images.soundcloud}
           bgSize="contain"
           bgRepeat="no-repeat"
         />
 
-        <Slide bgImage={images.yootoob} bgSize="contain" bgRepeat="no-repeat" />
+        <Slide
+          transition={['fade']}
+          bgImage={images.yootoob}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+        />
 
-        <Slide transition={['fade']} bgColor="tertiary">
+        <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
             The Beginner’s Mind
           </Heading>
@@ -106,22 +115,10 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']}>
-          <Heading
-            size={2}
-            textSize="1.25em"
-            textColor="secondary"
-            lineHeight="1.25em"
-          >
-            Being an expert and knowing all the limitations of something can
-            hurt you. Blissful ignorance is bliss (sometimes).
-          </Heading>
-        </Slide>
-
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={2} textSize="1.25em" textColor="primary">
+          <Heading size={2} textSize="1.25em" textColor="secondary">
             I use a different guitar tuning for almost every song.
           </Heading>
-          <List textColor="primary">
+          <List>
             <ListItem textSize="1em">E A D G B E (standard)</ListItem>
             <ListItem textSize="1em">E B D# F# B D#</ListItem>
             <ListItem textSize="1em">C G E G B D</ListItem>
@@ -130,19 +127,27 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="tertiary">
+        {/* <Slide transition={['fade']} bgColor="tertiary" /> */}
+
+        <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
-            Flow: The High We All Chase
+            Flow state is the high we all chase.
           </Heading>
         </Slide>
 
         <Slide transition={['fade']}>
+          <Heading size={2} textSize="1.25em" textColor="secondary">
+            We do our best work in the Flow Channel.
+          </Heading>
+
           <Image width="80%" src={images.flow} />
         </Slide>
 
-        <Slide transition={['fade']} bgColor="tertiary">
+        <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary" lineHeight="1.25em">
-            Making music is a dance of problem-solving and creativity.
+            Creating music is a dance of{' '}
+            <span className="underline">problem-solving</span> and{' '}
+            <span className="underline">creativity</span>.
           </Heading>
         </Slide>
 
@@ -154,7 +159,7 @@ export default class Presentation extends React.Component {
           <Image width="100%" src={images.mastering} />
         </Slide>
 
-        <Slide transition={['fade']} bgColor="tertiary">
+        <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
             Simplicity is the ultimate sophistication.
           </Heading>
@@ -167,19 +172,19 @@ export default class Presentation extends React.Component {
           </BlockQuote>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="tertiary">
+        <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
-            Everything is a Remix
-          </Heading>
-        </Slide>
-
-        <Slide transition={['fade']}>
-          <Heading size={2} textSize="1.25em" textColor="#282828">
-            All original ideas are variations of pre-existing ones.
+            Everything is a remix.
           </Heading>
         </Slide>
 
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+          <Heading size={2} textSize="1.25em" textColor="primary">
+            All original ideas are variations of pre-existing ones.
+          </Heading>
+
+          <br />
+
           <BlockQuote>
             <Quote textSize="1em">
               Nothing is original. Steal from anywhere that resonates with
@@ -188,7 +193,7 @@ export default class Presentation extends React.Component {
               conversations, architecture, bridges, street signs, trees, clouds,
               bodies of water, light and shadows. Select only things to steal
               from that speak directly to your soul. If you do this, your work
-              (and theft) will be authentic. ...In any case, always remember
+              (and theft) will be authentic. ... In any case, always remember
               what Jean-Luc Godard said: "It’s not where you take things from –
               it’s where you take them to"..
             </Quote>
@@ -214,7 +219,7 @@ export default class Presentation extends React.Component {
           </BlockQuote>
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Heading textSize="2em">Fin.</Heading>
         </Slide>
       </Deck>
