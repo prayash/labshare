@@ -8,8 +8,7 @@ import {
   ListItem,
   List,
   Quote,
-  Slide,
-  Text
+  Slide
 } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 
@@ -25,7 +24,7 @@ const images = {
   modular: require('./assets/modular.jpg'),
   soundcloud: require('./assets/soundcloud.png'),
   studio: require('./assets/studio.jpg'),
-  youtube: require('./assets/youtube.png')
+  yootoob: require('./assets/yootoob.png')
 }
 
 const theme = createTheme(
@@ -51,13 +50,15 @@ export default class Presentation extends React.Component {
         controls={false}
       >
         <Slide>
-          <Heading textSize="2em">Motifs in Music & Software</Heading>
+          <Heading textSize="2em">5 Things Music Taught Me</Heading>
           <br />
           <Heading textSize="2em">
             <span role="img" aria-label="music">
               🎼
-            </span>
-            {' + '}
+            </span>{' '}
+            <span role="img" aria-label="music">
+              🎸
+            </span>{' '}
             <span role="img" aria-label="computer">
               💻
             </span>
@@ -81,36 +82,13 @@ export default class Presentation extends React.Component {
           <Image width="100%" src={images.studio} />
         </Slide>
 
-        <Slide align="center flex-start">
-          <Image width="100%" src={images.soundcloud} />
-        </Slide>
+        <Slide
+          bgImage={images.soundcloud}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+        />
 
-        <Slide align="center flex-start">
-          <Image width="100%" src={images.youtube} />
-        </Slide>
-
-        {/* <Slide>
-          <Layout>
-            <Fill>
-              <Image width="100%" src={images.soundcloud} />
-            </Fill>
-            <Fill>
-              <Image width="100%" src={images.youtube} />
-            </Fill>
-          </Layout>
-        </Slide> */}
-
-        <Slide>
-          <Heading
-            size={2}
-            textSize="1.25em"
-            textColor="secondary"
-            lineHeight="1.25em"
-          >
-            There are quite a few parallels when it comes down to the process of
-            making music vs. building software.
-          </Heading>
-        </Slide>
+        <Slide bgImage={images.yootoob} bgSize="contain" bgRepeat="no-repeat" />
 
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
@@ -165,24 +143,22 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary" lineHeight="1.25em">
-            Like music, the act of building programs is a dance of
-            problem-solving and creativity.
+            Making music is a dance of problem-solving and creativity.
           </Heading>
         </Slide>
 
         <Slide transition={['fade']}>
-          <Image width="80%" src={images.fiddle} />
+          <Image width="90%" src={images.fiddle} />
         </Slide>
 
         <Slide transition={['fade']}>
-          <Image width="90%" src={images.mastering} />
+          <Image width="100%" src={images.mastering} />
         </Slide>
 
-        <Slide transition={['fade']}>
-          <Text textSize="1em" margin="0 0 1em 0" textColor="#282828">
-            Oooorrrrrrr this. But let's not go there.
-          </Text>
-          <Image width="80%" src={images.modular} />
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading textSize="2em" textColor="primary">
+            Simplicity is the ultimate sophistication.
+          </Heading>
         </Slide>
 
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
@@ -213,11 +189,9 @@ export default class Presentation extends React.Component {
               conversations, architecture, bridges, street signs, trees, clouds,
               bodies of water, light and shadows. Select only things to steal
               from that speak directly to your soul. If you do this, your work
-              (and theft) will be authentic. Authenticity is invaluable;
-              originality is nonexistent. And don’t bother concealing your
-              thievery. celebrate it if you feel like it. In any case, always
-              remember what Jean-Luc Godard said: "It’s not where you take
-              things from – it’s where you take them to"..
+              (and theft) will be authentic. ...In any case, always remember
+              what Jean-Luc Godard said: "It’s not where you take things from –
+              it’s where you take them to"..
             </Quote>
             <Cite>Jim Jarmusch</Cite>
           </BlockQuote>
@@ -235,6 +209,10 @@ export default class Presentation extends React.Component {
             <Quote>Software is never finished, only maintained.</Quote>
             <Cite>Some Wise Fella</Cite>
           </BlockQuote>
+        </Slide>
+
+        <Slide>
+          <Heading textSize="2em">Fin.</Heading>
         </Slide>
       </Deck>
     )
