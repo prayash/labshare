@@ -21,7 +21,6 @@ const images = {
   flow: require('./assets/flow.jpg'),
   guitar: require('./assets/guitar.jpg'),
   mastering: require('./assets/mastering.png'),
-  modular: require('./assets/modular.jpg'),
   soundcloud: require('./assets/soundcloud.png'),
   studio: require('./assets/studio.jpg'),
   yootoob: require('./assets/yootoob.png')
@@ -206,7 +205,11 @@ export default class Presentation extends React.Component {
 
         <Slide bgColor="secondary" textColor="primary">
           <BlockQuote>
-            <Quote>Software is never finished, only maintained.</Quote>
+            <Quote>
+              <span className="strikethrough">Art</span> Software is never
+              finished, only <span className="strikethrough">abandoned</span>{' '}
+              maintained.
+            </Quote>
             <Cite>Some Wise Fella</Cite>
           </BlockQuote>
         </Slide>

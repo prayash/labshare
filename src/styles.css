@@ -6,6 +6,10 @@ blockquote > span {
   line-height: 1.25em !important;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+}
+
 ul {
   text-align: left;
   line-height: 1.8;
