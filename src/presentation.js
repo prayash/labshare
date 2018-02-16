@@ -12,13 +12,9 @@ import {
 } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 
-import 'normalize.css'
-import 'spectacle/lib/themes/default/index.js'
-import './styles.css'
-
 const images = {
   fiddle: require('./assets/fiddle.jpg'),
-  flow: require('./assets/flow.jpg'),
+  flow: require('./assets/flow.png'),
   guitar: require('./assets/guitar.jpg'),
   mastering: require('./assets/mastering.png'),
   soundcloud: require('./assets/soundcloud.png'),
@@ -100,7 +96,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
-            The Beginner’s Mind
+            Zen mind, beginner’s mind.
           </Heading>
         </Slide>
 
@@ -119,11 +115,11 @@ export default class Presentation extends React.Component {
             I use a different guitar tuning for almost every song.
           </Heading>
           <List>
-            <ListItem textSize="1em">E A D G B E (standard)</ListItem>
+            <ListItem textSize="1em">E A D G B E - standard</ListItem>
             <ListItem textSize="1em">E B D# F# B D#</ListItem>
             <ListItem textSize="1em">C G E G B D</ListItem>
-            <ListItem textSize="1em">C G D G B C capo1</ListItem>
-            <ListItem textSize="1em">D F# A E A D capo3</ListItem>
+            <ListItem textSize="1em">C G D G B C (capo 1)</ListItem>
+            <ListItem textSize="1em">D F# A E A D (capo 3)</ListItem>
           </List>
         </Slide>
 
@@ -140,7 +136,9 @@ export default class Presentation extends React.Component {
             We do our best work in the Flow Channel.
           </Heading>
 
-          <Image width="80%" src={images.flow} />
+          <br />
+
+          <Image width="60%" src={images.flow} />
         </Slide>
 
         <Slide transition={['slide', 'fade']} bgColor="tertiary">
