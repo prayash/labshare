@@ -8,7 +8,7 @@ import {
   ListItem,
   List,
   Quote,
-  Slide
+  Slide,
 } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 
@@ -18,8 +18,11 @@ const images = {
   guitar: require('./assets/guitar.jpg'),
   mastering: require('./assets/mastering.png'),
   soundcloud: require('./assets/soundcloud.png'),
+  soundcloudSafari: require('./assets/soundcloud-safari.png'),
   studio: require('./assets/studio.jpg'),
-  yootoob: require('./assets/yootoob.png')
+  yootoob: require('./assets/yootoob.png'),
+  queueProtocol: require('./assets/queue-protocol.png'),
+  arrangementView: require('./assets/arrangement-view.png'),
 }
 
 const theme = createTheme(
@@ -27,15 +30,19 @@ const theme = createTheme(
     primary: '#fafafa',
     secondary: 'hsl(60, 1%, 16%)',
     tertiary: '#03A9FC',
-    quarternary: '#03A9FC'
+    quarternary: '#03A9FC',
   },
   {
     primary: {
       name: 'Lato',
       googleFont: true,
-      styles: ['200', '400', '700']
-    }
+      styles: ['200', '400', '700'],
+    },
   }
+)
+
+const Paragraph = (props) => (
+  <p {...props} style={{ textAlign: 'left', lineHeight: 1.3 }}></p>
 )
 
 export default class Presentation extends React.Component {
@@ -48,7 +55,7 @@ export default class Presentation extends React.Component {
         controls={false}
       >
         <Slide transition={['fade']}>
-          <Heading textSize="2em">5 Things Music Taught Me</Heading>
+          <Heading textSize="2em">Parallels in Programming and Music</Heading>
           <br />
           <Heading textSize="2em">
             <span role="img" aria-label="music">
@@ -65,7 +72,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['slide', 'fade']}>
           <Heading textSize="2em">
-            Hey, hi.{' '}
+            Hi, I'm Prayash.{' '}
             <span role="img" aria-label="wave">
               👋
             </span>
@@ -80,19 +87,9 @@ export default class Presentation extends React.Component {
           <Image width="100%" src={images.studio} />
         </Slide>
 
-        <Slide
-          transition={['fade']}
-          bgImage={images.soundcloud}
-          bgSize="contain"
-          bgRepeat="no-repeat"
-        />
-
-        <Slide
-          transition={['fade']}
-          bgImage={images.yootoob}
-          bgSize="contain"
-          bgRepeat="no-repeat"
-        />
+        <Slide transition={['fade']}>
+          <Image width="100%" src={images.soundcloudSafari} />
+        </Slide>
 
         <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
@@ -110,24 +107,42 @@ export default class Presentation extends React.Component {
           </BlockQuote>
         </Slide>
 
-        <Slide transition={['fade']}>
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={2} textSize="1.25em" textColor="secondary">
-            I use a different guitar tuning for almost every song.
+            🎸
           </Heading>
+
+          <Paragraph>
+            I use a different guitar tuning for almost every song. This helps me
+            discard old patterns and open myself up to new ones.
+          </Paragraph>
           <List>
-            <ListItem textSize="1em">E A D G B E - standard</ListItem>
-            <ListItem textSize="1em">E B D# F# B D#</ListItem>
-            <ListItem textSize="1em">C G E G B D</ListItem>
-            <ListItem textSize="1em">C G D G B C (capo 1)</ListItem>
-            <ListItem textSize="1em">D F# A E A D (capo 3)</ListItem>
+            <ListItem textSize="0.75em">E A D G B E - standard</ListItem>
+            <ListItem textSize="0.75em">E B D# F# B D#</ListItem>
+            <ListItem textSize="0.75em">C G E G B D</ListItem>
+            <ListItem textSize="0.75em">C G D G B C (capo 1)</ListItem>
+            <ListItem textSize="0.75em">D F# A E A D (capo 3)</ListItem>
           </List>
         </Slide>
 
-        {/* <Slide transition={['fade']} bgColor="tertiary" /> */}
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+          <Heading size={2} textSize="1.25em" textColor="secondary">
+            💻
+          </Heading>
+
+          <Paragraph>
+            Relying on old patterns can be great, but sometimes we want to break
+            out of those old patterns.
+          </Paragraph>
+
+          <Paragraph>
+            Building an API, or a subsystem from a blank slate is liberating.
+          </Paragraph>
+        </Slide>
 
         <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary">
-            Flow state is the high we all chase.
+            Flow state is the optimal place of productivity.
           </Heading>
         </Slide>
 
@@ -141,11 +156,44 @@ export default class Presentation extends React.Component {
           <Image width="60%" src={images.flow} />
         </Slide>
 
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+          <Heading size={2} textSize="1.25em" textColor="secondary">
+            🎸
+          </Heading>
+
+          <Paragraph>
+            Sometimes, musical technique has to catch up to the idea we have in
+            our heads in order for the music to materialize.
+          </Paragraph>
+
+          <Paragraph>
+            Technique ✋ -------------------------------------------- 🤚Music
+          </Paragraph>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+          <Heading size={2} textSize="1.25em" textColor="secondary">
+            💻
+          </Heading>
+
+          <Paragraph>
+            Working with new technologies, unfamiliar APIs, programming within a
+            new paradigm, or cracking a tough programming problem are times when
+            we lose ourselves in the moment.
+          </Paragraph>
+
+          <Paragraph>
+            Trusting in one's ability to figure it out via docs, sample code, or
+            reading through source code.
+          </Paragraph>
+        </Slide>
+
         <Slide transition={['slide', 'fade']} bgColor="tertiary">
           <Heading textSize="2em" textColor="primary" lineHeight="1.25em">
-            Creating music is a dance of{' '}
+            Software engineering is a dance of{' '}
             <span className="underline">problem-solving</span> and{' '}
-            <span className="underline">creativity</span>.
+            <span className="underline">creativity</span> just like music
+            production.
           </Heading>
         </Slide>
 
@@ -161,6 +209,22 @@ export default class Presentation extends React.Component {
           <Heading textSize="2em" textColor="primary">
             Simplicity is the ultimate sophistication.
           </Heading>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Paragraph>
+            When in doubt, I like to stub out the API to get a 'feel' for it.
+          </Paragraph>
+          <Image width="100%" src={images.queueProtocol} />
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Paragraph>
+            Broad strokes on the canvas is almost always the best place to
+            start. The structure of a composition as a whole is much more
+            important than minutiae.
+          </Paragraph>
+          <Image width="100%" src={images.arrangementView} />
         </Slide>
 
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
@@ -187,16 +251,32 @@ export default class Presentation extends React.Component {
             <Quote textSize="1em">
               Nothing is original. Steal from anywhere that resonates with
               inspiration or fuels your imagination. Devour old films, new
-              films, music, books, paintings, photographs, poems, dreams, random
-              conversations, architecture, bridges, street signs, trees, clouds,
-              bodies of water, light and shadows. Select only things to steal
-              from that speak directly to your soul. If you do this, your work
-              (and theft) will be authentic. ... In any case, always remember
-              what Jean-Luc Godard said: "It’s not where you take things from –
-              it’s where you take them to"..
+              films, music, books, paintings, photographs ... In any case,
+              always remember what Jean-Luc Godard said: "It’s not where you
+              take things from – it’s where you take them to"..
             </Quote>
             <Cite>Jim Jarmusch</Cite>
           </BlockQuote>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Paragraph>
+            There's so much to be learned from other places. Concepts from game
+            development like game-loop have proven timeless. UI architectural
+            patterns from the Web can be insightful. Case in point,{' '}
+            <strong>SwiftUI</strong>!
+          </Paragraph>
+
+          <Paragraph>
+            SwiftUI is inspired by the architecture of JavaScript libraries like
+            Elm and React. The new thing it's doing is using the type system to
+            optimize out the static subset of the view graph.
+          </Paragraph>
+
+          <Paragraph>
+            Declarative UIs are the next generation of user interface
+            development (we'll take our sweet time getting there, though).
+          </Paragraph>
         </Slide>
 
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
@@ -212,6 +292,30 @@ export default class Presentation extends React.Component {
               <span className="strikethrough">Art</span> Software is never
               finished, only <span className="strikethrough">abandoned</span>{' '}
               maintained.
+            </Quote>
+            <Cite>Some Wise Fella</Cite>
+          </BlockQuote>
+        </Slide>
+
+        <Slide bgColor="secondary" textColor="primary">
+          <BlockQuote>
+            <Quote>
+              <span className="strikethrough">Art</span> Software is never
+              finished, only <span className="strikethrough">abandoned</span>{' '}
+              <span className="strikethrough">maintained</span> deprecated.
+            </Quote>
+            <Cite>Some Wise Fella</Cite>
+          </BlockQuote>
+        </Slide>
+
+        <Slide bgColor="secondary" textColor="primary">
+          <BlockQuote>
+            <Quote>
+              <span className="strikethrough">Art</span> Software is never
+              finished, only <span className="strikethrough">abandoned</span>{' '}
+              <span className="strikethrough">maintained</span>{' '}
+              <span className="strikethrough">deprecated</span>{' '}
+              version-controlled.
             </Quote>
             <Cite>Some Wise Fella</Cite>
           </BlockQuote>
